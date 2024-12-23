@@ -1,0 +1,32 @@
+
+jwttoken:
+  secret:
+    key: $NarendraDhakad1234
+spring:
+  application:
+    name: UserAuth
+  data:
+    mongodb:
+      uri: mongodb+srv://narendra24:TVyLbIofIYb2lbSD@cluster0.3eabei0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: JwtAuthApp
+      auto-index-creation: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: singhdhakad2023@gmail.com
+    password: pbql wgot zpny eovq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+
+
+
+
+server:
+  port: 8080
