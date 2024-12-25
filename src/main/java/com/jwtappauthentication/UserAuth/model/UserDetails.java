@@ -15,22 +15,38 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Document (collection = "user_details")
-@Data
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
     @Id
     private ObjectId Id;
     @NonNull
     @Indexed(unique = true)
     private String username;
+
+    public void setUsername(@NonNull String username) {
+        this.username = username;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
+    }
+
+    public @NonNull String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(@NonNull String roles) {
+        this.roles = roles;
+    }
+
     @NonNull
     private String password;
 //    GrantedAuthority authorities = new SimpleGrantedAuthority("USER");
     @NonNull
     private String roles; // Roles stored as comma-separated values (e.g., "ROLE_USER,ROLE_ADMIN")
 
-    public UserDetails() {
-
-    }
+//    public UserDetails() {
+//
+//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

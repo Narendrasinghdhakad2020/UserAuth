@@ -9,6 +9,8 @@ spring:
     mongodb:
       uri: mongodb+srv://narendra24:TVyLbIofIYb2lbSD@cluster0.3eabei0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: JwtAuthApp
+      ssl:
+        enable: true
       auto-index-creation: true
 
   mail:

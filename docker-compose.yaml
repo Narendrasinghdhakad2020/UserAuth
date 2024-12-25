@@ -1,0 +1,34 @@
+version: '3.4'
+services:
+  auth-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://narendra24:TVyLbIofIYb2lbSD@cluster0.3eabei0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - SPRING_JWTTOKEN_SECRET_KEY = $NarendraDhakad1234
+       # Enable SSL explicitly
+      - SPRING_DATA_MONGODB_SSL_ENABLED=true
+      - SPRING_DATA_MONGODB_SSL_INVALID_HOSTNAME_ALLOWED=false
+    depends_on:
+      - mongodb
+    restart: always
+
+  mongodb:
+    image: mongo
+    container_name: mongo_cloud
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME= narendra24
+      - MONGO_INITDB_ROOT_PASSWORD= TVyLbIofIYb2lbSD
+      - MONGO_INITDB_DATABASE= JwtAuthApp
+      - MONGO_INITDB_AUTO_INDEX_CREATION = true
+
+
+
+
+
+

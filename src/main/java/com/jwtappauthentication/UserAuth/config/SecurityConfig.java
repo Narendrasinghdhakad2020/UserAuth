@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -47,7 +49,7 @@ public class SecurityConfig {
         http
                 .csrf(customCsrf->customCsrf.disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("user-auth/**").permitAll() // allow login without authenticate
+                        .requestMatchers("/user-auth/**").permitAll() // allow login without authenticate
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .requestMatchers("/user/**").hasAuthority("USER")
                         .anyRequest().authenticated()) //protect other endpoints

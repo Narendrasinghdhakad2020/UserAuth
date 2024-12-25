@@ -21,7 +21,7 @@ public class EmailService {
             javaMailSender.send(mail);
             System.out.println("Your email is successfully sended");
         } catch (RuntimeException e) {
-            log.error("Error in sending email"+e.getMessage());
+            System.out.println("Error in sending email"+e.getMessage());
         }
 
 

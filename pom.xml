@@ -93,6 +93,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>spring-user-auth</finalName>
 	</build>
 
 </project>
